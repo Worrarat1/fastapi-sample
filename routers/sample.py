@@ -37,7 +37,7 @@ class User(BaseModel):
 @router.get("/user")
 async def get_user():
     coll = db["user"]
-    user = coll.find_one("user", projection={})
+    user = coll.find_one(projection={})
     result = {"code": 1000, "result": user}
     return JSONResponse(status_code=200, content=jsonable_encoder(result))
 
