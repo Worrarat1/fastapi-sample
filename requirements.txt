@@ -1,0 +1,10 @@
+fastapi==0.63.0
+pymongo==3.11.3
+uvicorn==0.13.4
+requests==2.27.1 
+aiofiles==0.6.0
+gunicorn==20.1.0
+python-multipart==0.0.5
+uvloop==0.15.2
+httptools==0.4.0
+dnspython==2.2.1
