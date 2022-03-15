@@ -1,5 +1,5 @@
 # list env
-conda list env
+conda env list
 
 # create env
 conda create --name fastapi
