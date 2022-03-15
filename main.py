@@ -11,10 +11,10 @@ from starlette.requests import Request
 from starlette.responses import JSONResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
 from starlette.middleware.cors import CORSMiddleware
-from routers import sample
+from routers import user, house
 
 # initialise Fast APi instance
-app = FastAPI(title="Sample API",
+app = FastAPI(title="FastAPI",
               description="""
      Simple API for demonstration.
      """, version="2.0")
@@ -42,9 +42,15 @@ async def validation_exception_handler(request, exc):
                         headers=None)
     
 app.include_router(
-    sample.router,
+    user.router,
     prefix = "/api/v1",
-    tags=["sample"]
+    tags=["User"]
+)
+
+app.include_router(
+    house.router,
+    prefix = "/api/v1",
+    tags=["House"]
 )
 
 if __name__ == "__main__":

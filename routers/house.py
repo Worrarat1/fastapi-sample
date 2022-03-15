@@ -28,25 +28,7 @@ router = APIRouter()
 conn = MongoClient(db_url)
 db = conn[db_name]
 
-# initialize field body
-class User(BaseModel):
-    first_name: str = Field(..., description="ชื่อจริง") 
-    last_name: str = Field(..., description="นามสกุล")
-    income: float = Field(0, description="รายได้") 
-    
-@router.get("/user")
+@router.get("/house")
 async def get_user():
-    coll = db["user"]
-    user = coll.find_one(projection={})
-    result = {"code": 1000, "result": user}
-    return JSONResponse(status_code=200, content=jsonable_encoder(result))
-
-@router.get("/user/{uid}")
-async def get_user_one():
     result = {"code": 1000, "result": "ok"}
-    return JSONResponse(status_code=200, content=jsonable_encoder(result))
-
-@router.post("/user")
-async def insert_user():
-    result = {"code": 1000, "result": "ok"}
-    return JSONResponse(status_code=200, content=jsonable_encoder(result))
+    return JSONResponse(status_code=200, content=jsonable_encoder())
